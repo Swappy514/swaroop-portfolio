@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --orange: #ff4500;
+  --amber: #ffb700;
+  --bg-dark: #080808;
+  --bg-darker: #050505;
+  --bg-card: #161616;
+  --bg-card-hover: #1a1a1a;
+  --cream: #f2ede4;
+  --text-primary: #f0f0f0;
+  --text-muted: #5a5a5a;
+  --text-dark: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #080808;
+  color: #f0f0f0;
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #ff4500, #ffb700);
+  border-radius: 2px;
+}
+
+/* Gradient Text Utility */
+.grad-text {
+  background: linear-gradient(135deg, #ff4500, #ffb700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient Border Utility */
+.grad-border {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(255, 69, 0, 0.3);
+  color: #fff;
+}
