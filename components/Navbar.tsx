@@ -1,0 +1,67 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const navLinks = [
+  { label: "Home", href: "#hero" },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Skills", href: "#skills" },
+  { label: "Blog", href: "#blog" },
+  { label: "Contact", href: "#contact" },
+];
+
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const linkStyle = {
+    fontFamily: "var(--font-inter)",
+    fontSize: "16px",
+    fontWeight: 500,
+    color: "#ccc",
+    textDecoration: "none",
+    cursor: "none",
+  };
+
+  const cvStyle = {
+    padding: "10px 20px",
+    background: "linear-gradient(135deg, #ff4500, #ff7700)",
+    color: "#000",
+    fontWeight: 700,
+    fontSize: "12px",
+    borderRadius: "4px",
+    textDecoration: "none",
+    textAlign: "center" as const,
+    cursor: "none",
+  };
+
+  return (
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, delay: 3.2 }}
+      style={{
+        position: "fixed",
+        top: 0,
+        width: "100%",
+        zIndex: 200,
+        padding: "16px 48px",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        transition: "all 0.4s ease",
+        background: scrolled ? "rgba(8,8,8,0.96)" : "rgba(8,8,8,0.5)",
+        backdropFilter: "blur(16px)",
+        borderBottom: scrolled
+          ? "1px solid rgba(255,130,0,0.15)"
+          : "1px solid rgba(255,255,255,0.05)",
+      }}
+    >
