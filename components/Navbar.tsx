@@ -65,3 +65,36 @@ export default function Navbar() {
           : "1px solid rgba(255,255,255,0.05)",
       }}
     >
+      {/* LOGO */}
+      <motion.a
+        href="#hero"
+        whileHover={{ scale: 1.05 }}
+        style={{
+          fontFamily: "var(--font-inter)",
+          fontSize: "20px",
+          fontWeight: 700,
+          textDecoration: "none",
+          background: "linear-gradient(135deg, #ff4500, #ffb700)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          cursor: "none",
+        }}
+      >
+        Swaroop.dev
+        <motion.span
+          animate={{ opacity: [1, 0.3, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
+          style={{
+            width: "7px",
+            height: "7px",
+            borderRadius: "50%",
+            background: "#22c55e",
+            boxShadow: "0 0 8px #22c55e",
+            display: "inline-block",
+          }}
+        />
+      </motion.a>
