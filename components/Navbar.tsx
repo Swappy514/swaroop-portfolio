@@ -188,3 +188,47 @@ export default function Navbar() {
           />
         ))}
       </button>
+      {/* MOBILE MENU */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              right: 0,
+              background: "rgba(8,8,8,0.98)",
+              backdropFilter: "blur(20px)",
+              borderBottom: "1px solid rgba(255,130,0,0.15)",
+              padding: "24px 48px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+            }}
+          >
+            {navLinks.map((link) => {
+              const href = link.href;
+              const label = link.label;
+              return (
+                <motion.a
+                  key={label}
+                  href={href}
+                  onClick={() => setMenuOpen(false)}
+                  style={linkStyle}
+                >
+                  {label}
+                </motion.a>
+              );
+            })}
+            <motion.a href="/swaroop-cv.pdf" target="_blank" style={cvStyle}>
+              Download CV
+            </motion.a>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.nav>
+  );
+}
