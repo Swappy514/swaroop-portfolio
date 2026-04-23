@@ -156,3 +156,35 @@ export default function Navbar() {
           Download CV
         </motion.a>
       </div>
+      {/* MOBILE HAMBURGER */}
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        className="nav-mobile-btn"
+        style={{
+          display: "none",
+          background: "transparent",
+          border: "none",
+          cursor: "none",
+          flexDirection: "column",
+          gap: "5px",
+          padding: "4px",
+        }}
+      >
+        {[0, 1, 2].map((i) => (
+          <motion.span
+            key={i}
+            animate={{
+              rotate: menuOpen && i === 0 ? 45 : menuOpen && i === 2 ? -45 : 0,
+              y: menuOpen && i === 0 ? 7 : menuOpen && i === 2 ? -7 : 0,
+              opacity: menuOpen && i === 1 ? 0 : 1,
+            }}
+            style={{
+              display: "block",
+              width: "22px",
+              height: "2px",
+              background: "linear-gradient(to right, #ff4500, #ffb700)",
+              borderRadius: "2px",
+            }}
+          />
+        ))}
+      </button>
