@@ -98,3 +98,61 @@ export default function Navbar() {
           }}
         />
       </motion.a>
+      {/* DESKTOP LINKS */}
+      <div
+        className="nav-desktop"
+        style={{ display: "flex", gap: "32px", alignItems: "center" }}
+      >
+        {navLinks.map((link) => (
+          <motion.a
+            key={link.label}
+            href={link.href}
+            whileHover={{ color: "#ffffff" }}
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "13px",
+              fontWeight: 500,
+              color: "#aaa",
+              textDecoration: "none",
+              cursor: "none",
+              position: "relative",
+              transition: "color 0.2s",
+            }}
+          >
+            {link.label}
+            <motion.span
+              initial={{ scaleX: 0 }}
+              whileHover={{ scaleX: 1 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                position: "absolute",
+                bottom: "-3px",
+                left: 0,
+                right: 0,
+                height: "1px",
+                background: "linear-gradient(to right, #ff4500, #ffb700)",
+                transformOrigin: "left",
+                display: "block",
+              }}
+            />
+          </motion.a>
+        ))}
+        <motion.a
+          href="/swaroop-cv.pdf"
+          target="_blank"
+          whileHover={{ opacity: 0.85, y: -1 }}
+          style={{
+            padding: "9px 20px",
+            background: "linear-gradient(135deg, #ff4500, #ff7700)",
+            color: "#000",
+            fontFamily: "var(--font-inter)",
+            fontSize: "12px",
+            fontWeight: 700,
+            borderRadius: "4px",
+            cursor: "none",
+            textDecoration: "none",
+          }}
+        >
+          Download CV
+        </motion.a>
+      </div>
