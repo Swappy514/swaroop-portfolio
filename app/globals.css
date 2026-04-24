@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --orange: #ff4500;
@@ -62,4 +64,14 @@ body {
 ::selection {
   background: rgba(255, 69, 0, 0.3);
   color: #fff;
+}
+
+/* Mobile Nav */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+  .nav-mobile-btn {
+    display: flex !important;
+  }
 }
