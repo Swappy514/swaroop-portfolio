@@ -13,6 +13,13 @@
   --text-primary: #f0f0f0;
   --text-muted: #5a5a5a;
   --text-dark: #1a1a1a;
+  --nav-logo-size: 18px;
+  --nav-link-size: 13px;
+  --hero-name-size: 48px;
+  --hero-role-size: 28px;
+  --section-title-size: 36px;
+  --body-size: 14px;
+  --card-title-size: 18px;
 }
 
 * {
@@ -64,6 +71,45 @@ body {
 ::selection {
   background: rgba(255, 69, 0, 0.3);
   color: #fff;
+}
+
+/* Tablet 768px+ */
+@media (min-width: 768px) {
+  :root {
+    --nav-logo-size: 20px;
+    --nav-link-size: 13px;
+    --hero-name-size: 64px;
+    --hero-role-size: 36px;
+    --section-title-size: 52px;
+    --body-size: 15px;
+    --card-title-size: 20px;
+  }
+}
+
+/* Desktop 1024px+ */
+@media (min-width: 1024px) {
+  :root {
+    --nav-logo-size: 22px;
+    --nav-link-size: 14px;
+    --hero-name-size: 84px;
+    --hero-role-size: 42px;
+    --section-title-size: 64px;
+    --body-size: 15px;
+    --card-title-size: 22px;
+  }
+}
+
+/* Large Screen 1440px+ */
+@media (min-width: 1440px) {
+  :root {
+    --nav-logo-size: 24px;
+    --nav-link-size: 14px;
+    --hero-name-size: 100px;
+    --hero-role-size: 52px;
+    --section-title-size: 74px;
+    --body-size: 16px;
+    --card-title-size: 24px;
+  }
 }
 
 /* Mobile Nav */
