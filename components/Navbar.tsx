@@ -110,7 +110,7 @@ export default function Navbar() {
           <motion.a
             key={link.label}
             href={link.href}
-            whileHover={{ color: "#ffffff" }}
+            whileHover={{ color: "#ffffff", scale: 1.05 }}
             style={{
               fontFamily: "var(--font-inter)",
               fontSize: "clamp(12px, 1vw, 14px)",
@@ -125,10 +125,7 @@ export default function Navbar() {
             {link.label}
             <motion.span
               initial={{ scaleX: 0 }}
-              whileHover={{
-                color: "#ffffff",
-                scale: 1.05,
-              }}
+              whileHover={{ scaleX: 1 }}
               transition={{ duration: 0.3 }}
               style={{
                 position: "absolute",
