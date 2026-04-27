@@ -74,7 +74,7 @@ export default function Navbar() {
         }}
         style={{
           fontFamily: "var(--font-inter)",
-          fontSize: "var(--nav-logo-size)",
+          fontSize: "clamp(18px, 1.8vw, 24px)",
           fontWeight: 700,
           textDecoration: "none",
           background: "linear-gradient(135deg, #ff4500, #ffb700)",
@@ -113,7 +113,7 @@ export default function Navbar() {
             whileHover={{ color: "#ffffff" }}
             style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "var(--nav-link-size)",
+              fontSize: "clamp(12px, 1vw, 14px)",
               fontWeight: 500,
               color: "#aaa",
               textDecoration: "none",
