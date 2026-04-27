@@ -24,11 +24,12 @@ export default function Navbar() {
 
   const linkStyle = {
     fontFamily: "var(--font-inter)",
-    fontSize: "16px",
+    fontSize: "clamp(14px, 4vw, 18px)",
     fontWeight: 500,
     color: "#ccc",
     textDecoration: "none",
     cursor: "none",
+    transition: "color 0.2s, letter-spacing 0.2s",
   };
 
   const cvStyle = {
@@ -68,10 +69,12 @@ export default function Navbar() {
       {/* LOGO */}
       <motion.a
         href="#hero"
-        whileHover={{ scale: 1.05 }}
+        whileHover={{
+          scale: 1.08,
+        }}
         style={{
           fontFamily: "var(--font-inter)",
-          fontSize: "20px",
+          fontSize: "var(--nav-logo-size)",
           fontWeight: 700,
           textDecoration: "none",
           background: "linear-gradient(135deg, #ff4500, #ffb700)",
@@ -110,7 +113,7 @@ export default function Navbar() {
             whileHover={{ color: "#ffffff" }}
             style={{
               fontFamily: "var(--font-inter)",
-              fontSize: "13px",
+              fontSize: "var(--nav-link-size)",
               fontWeight: 500,
               color: "#aaa",
               textDecoration: "none",
@@ -122,7 +125,10 @@ export default function Navbar() {
             {link.label}
             <motion.span
               initial={{ scaleX: 0 }}
-              whileHover={{ scaleX: 1 }}
+              whileHover={{
+                color: "#ffffff",
+                scale: 1.05,
+              }}
               transition={{ duration: 0.3 }}
               style={{
                 position: "absolute",
