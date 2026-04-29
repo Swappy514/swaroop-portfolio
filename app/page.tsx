@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
+import ScrollProgress from "@/components/ScrollProgress";
 
 export default function Home() {
   return (
     <main>
+      <ScrollProgress />
       <Navbar />
       <div
         style={{
