@@ -1,12 +1,8 @@
 import Navbar from "@/components/Navbar";
-import ScrollProgress from "@/components/ScrollProgress";
-import CustomCursor from "@/components/CustomCursor";
 
 export default function Home() {
   return (
     <main>
-      <CustomCursor />
-      <ScrollProgress />
       <Navbar />
       <div
         style={{
@@ -14,7 +10,6 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "center",
           height: "100vh",
-          fontFamily: "monospace",
           color: "#ff5500",
           fontSize: "20px",
         }}
