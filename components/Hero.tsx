@@ -88,7 +88,7 @@ export default function Hero() {
     if (!container) return;
 
     const icons = container.querySelectorAll<HTMLDivElement>(".orbit-icon");
-    const R = 220;
+    const R = 260;
     let angle = 0;
     let animId: number;
 
@@ -148,15 +148,15 @@ export default function Hero() {
       <div
         style={{
           position: "relative",
-          width: "580px",
-          height: "580px",
+          width: "680px",
+          height: "680px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
         {/* Orbit rings */}
-        {[430, 510].map((size, i) => (
+        {[480, 580].map((size, i) => (
           <div
             key={size}
             style={{
@@ -190,8 +190,9 @@ export default function Hero() {
               fontFamily: "var(--font-inter)",
               fontWeight: 800,
               lineHeight: 0.95,
-              letterSpacing: "1px",
+              letterSpacing: "2px",
               marginBottom: "14px",
+              textAlign: "center",
             }}
           >
             <span
@@ -199,6 +200,7 @@ export default function Hero() {
                 display: "block",
                 fontSize: "clamp(48px, 7vw, 84px)",
                 color: "#fff",
+                textTransform: "uppercase",
               }}
             >
               Swaroop
@@ -208,6 +210,7 @@ export default function Hero() {
                 display: "block",
                 fontSize: "clamp(48px, 7vw, 84px)",
                 color: "#fff",
+                textTransform: "uppercase",
               }}
             >
               Jadhav
@@ -221,6 +224,8 @@ export default function Hero() {
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
                 marginTop: "8px",
+                textTransform: "uppercase",
+                letterSpacing: "4px",
               }}
             >
               Full-Stack Dev
@@ -313,6 +318,7 @@ export default function Hero() {
             left: "50%",
             width: 0,
             height: 0,
+            zIndex: 20,
           }}
         >
           {orbitIcons.map((item) => (
