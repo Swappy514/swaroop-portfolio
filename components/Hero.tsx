@@ -182,7 +182,7 @@ export default function Hero() {
             position: "relative",
             zIndex: 10,
             textAlign: "center",
-            width: "400px",
+            width: "300px",
           }}
         >
           <h1
