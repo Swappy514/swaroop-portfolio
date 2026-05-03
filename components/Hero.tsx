@@ -88,7 +88,7 @@ export default function Hero() {
     if (!container) return;
 
     const icons = container.querySelectorAll<HTMLDivElement>(".orbit-icon");
-    const R = 260;
+    const R = 265;
     let angle = 0;
     let animId: number;
 
@@ -148,7 +148,7 @@ export default function Hero() {
       <div
         style={{
           position: "relative",
-          width: "680px",
+          width: "580px",
           height: "680px",
           display: "flex",
           alignItems: "center",
@@ -318,7 +318,7 @@ export default function Hero() {
             left: "50%",
             width: 0,
             height: 0,
-            zIndex: 20,
+            zIndex: 10,
           }}
         >
           {orbitIcons.map((item) => (
