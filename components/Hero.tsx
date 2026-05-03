@@ -148,7 +148,7 @@ export default function Hero() {
       <div
         style={{
           position: "relative",
-          width: "580px",
+          width: "680px",
           height: "680px",
           display: "flex",
           alignItems: "center",
