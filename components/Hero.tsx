@@ -156,7 +156,7 @@ export default function Hero() {
         }}
       >
         {/* Orbit rings */}
-        {[480, 580].map((size, i) => (
+        {[460, 580].map((size, i) => (
           <div
             key={size}
             style={{
