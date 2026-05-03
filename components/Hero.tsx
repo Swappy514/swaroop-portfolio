@@ -318,7 +318,7 @@ export default function Hero() {
             left: "50%",
             width: 0,
             height: 0,
-            zIndex: 10,
+            zIndex: 20,
           }}
         >
           {orbitIcons.map((item) => (
