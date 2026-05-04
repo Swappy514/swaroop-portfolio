@@ -198,7 +198,7 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(48px, 7vw, 84px)",
+                fontSize: "clamp(42px, 6vw, 72px)",
                 color: "#fff",
                 textTransform: "uppercase",
               }}
@@ -208,7 +208,7 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(48px, 7vw, 84px)",
+                fontSize: "clamp(42px, 6vw, 72px)",
                 color: "#fff",
                 textTransform: "uppercase",
               }}
