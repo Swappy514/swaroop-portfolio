@@ -218,14 +218,14 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(24px, 3.5vw, 42px)",
+                fontSize: "clamp(20px, 2.8vw, 36px)",
+                letterSpacing: "6px",
                 background: "linear-gradient(135deg, #ff4500, #ffb700)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
                 marginTop: "8px",
                 textTransform: "uppercase",
-                letterSpacing: "4px",
               }}
             >
               Full-Stack Dev
