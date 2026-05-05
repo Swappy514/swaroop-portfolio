@@ -182,7 +182,7 @@ export default function Hero() {
             position: "relative",
             zIndex: 10,
             textAlign: "center",
-            width: "300px",
+            width: "clamp(280px, 40vw, 480px)",
           }}
         >
           <h1
