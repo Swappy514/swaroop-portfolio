@@ -88,7 +88,7 @@ export default function Hero() {
     if (!container) return;
 
     const icons = container.querySelectorAll<HTMLDivElement>(".orbit-icon");
-    const R = 265;
+    const R = Math.min(260, window.innerWidth * 0.22);
     let angle = 0;
     let animId: number;
 
