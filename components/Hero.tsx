@@ -218,7 +218,7 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(20px, 2.8vw, 36px)",
+                fontSize: "clamp(16px, 2.2vw, 38px)",
                 letterSpacing: "6px",
                 background: "linear-gradient(135deg, #ff4500, #ffb700)",
                 WebkitBackgroundClip: "text",
