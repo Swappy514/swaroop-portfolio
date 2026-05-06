@@ -2,16 +2,26 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+// ADD these imports at the very top of Hero.tsx
+import {
+  FaReact,
+  FaNodeJs,
+  FaAws,
+  FaPython,
+  FaGitAlt,
+  FaDatabase,
+} from "react-icons/fa";
+import { SiMongodb, SiExpress } from "react-icons/si";
 
 const orbitIcons = [
-  { icon: "⚛", label: "React" },
-  { icon: "🟢", label: "Node.js" },
-  { icon: "🍃", label: "MongoDB" },
-  { icon: "☁", label: "AWS" },
-  { icon: "🐍", label: "Python" },
-  { icon: "🗄", label: "SQL" },
-  { icon: "🐙", label: "Git" },
-  { icon: "🚂", label: "Express" },
+  { icon: <FaReact color="#61DAFB" size={20} />, label: "React" },
+  { icon: <FaNodeJs color="#68A063" size={20} />, label: "Node.js" },
+  { icon: <SiMongodb color="#4DB33D" size={20} />, label: "MongoDB" },
+  { icon: <FaAws color="#FF9900" size={20} />, label: "AWS" },
+  { icon: <FaPython color="#FFD43B" size={20} />, label: "Python" },
+  { icon: <FaDatabase color="#336791" size={20} />, label: "SQL" },
+  { icon: <FaGitAlt color="#F05032" size={20} />, label: "Git" },
+  { icon: <SiExpress color="#ffffff" size={20} />, label: "Express" },
 ];
 
 const techNames = ["React", "Node.js", "MongoDB", "Express", "AWS", "Python"];
@@ -335,7 +345,6 @@ export default function Hero() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "17px",
                 cursor: "none",
                 transition: "all 0.3s",
               }}
