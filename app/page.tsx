@@ -6,6 +6,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import CustomCursor from "@/components/CustomCursor";
 import Intro from "@/components/Intro";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -21,6 +22,7 @@ export default function Home() {
       {!introComplete && <Intro onComplete={handleIntroComplete} />}
       <Navbar />
       <Hero />
+      <About />
     </main>
   );
 }
