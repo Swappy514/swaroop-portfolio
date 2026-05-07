@@ -78,12 +78,12 @@ export default function About() {
       }}
     >
       {/* Dark Panel */}
-      {/* Dark Panel */}
       <motion.div
         initial={{ opacity: 0, x: -40 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
+        whileHover={{ y: -8 }}
         style={{
           width: "280px",
           height: "70vh",
@@ -99,6 +99,16 @@ export default function About() {
           borderRadius: "16px",
           boxShadow:
             "0 40px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,130,0,0.1)",
+          cursor: "none",
+          transition: "box-shadow 0.3s",
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLElement).style.boxShadow =
+            "0 50px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,130,0,0.25), 0 0 40px rgba(255,85,0,0.08)";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLElement).style.boxShadow =
+            "0 40px 80px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,130,0,0.1)";
         }}
       >
         {/* Glow */}
@@ -261,40 +271,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Graduate */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-              marginBottom: "10px",
-            }}
-          >
-            <span style={{ fontSize: "14px" }}>🎓</span>
-            <div>
-              <div
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontSize: "11px",
-                  fontWeight: 600,
-                  color: "#e0e0e0",
-                }}
-              >
-                2025 Graduate
-              </div>
-              <div
-                style={{
-                  fontFamily: "var(--font-inter)",
-                  fontSize: "9px",
-                  color: "#555",
-                  letterSpacing: "1px",
-                }}
-              >
-                COMPUTER SCIENCE
-              </div>
-            </div>
-          </div>
-
           {/* Experience */}
           <div
             style={{
@@ -338,9 +314,8 @@ export default function About() {
             }}
           />
         </div>
-
         {/* Bottom — Social Links */}
-        <div style={{ position: "relative", zIndex: 1 }}>
+        <div style={{ position: "relative", zIndex: 2 }}>
           <div
             style={{
               fontFamily: "var(--font-inter)",
