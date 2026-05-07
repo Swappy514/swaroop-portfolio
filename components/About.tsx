@@ -340,7 +340,7 @@ export default function About() {
         </div>
 
         {/* Bottom — Social Links */}
-        <div style={{ position: "relative", zIndex: 2 }}>
+        <div style={{ position: "relative", zIndex: 1 }}>
           <div
             style={{
               fontFamily: "var(--font-inter)",
