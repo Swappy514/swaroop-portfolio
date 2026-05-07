@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { FaGithub, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const stats = [
   { number: 12, suffix: "+", label: "PROJECTS" },
@@ -351,242 +353,71 @@ export default function About() {
           >
             Connect With Me
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-            {/* GitHub */}
-            <motion.a
-              href="https://github.com/Swappy514"
-              target="_blank"
-              whileHover={{ x: 4 }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                textDecoration: "none",
-                cursor: "none",
-                padding: "7px 10px",
-                borderRadius: "8px",
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.06)",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,85,0,0.08)";
-                e.currentTarget.style.borderColor = "rgba(255,85,0,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.03)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-              }}
-            >
-              <span style={{ fontSize: "16px" }}>🐙</span>
-              <div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "11px",
-                    fontWeight: 600,
-                    color: "#e0e0e0",
-                  }}
-                >
-                  GitHub
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "9px",
-                    color: "#555",
-                  }}
-                >
-                  @Swappy514
-                </div>
-              </div>
-              <span
+          <div style={{ display: "flex", gap: "8px" }}>
+            {[
+              {
+                href: "https://github.com/Swappy514",
+                icon: <FaGithub size={16} />,
+                label: "GitHub",
+                color: "#fff",
+              },
+              {
+                href: "https://www.linkedin.com/in/swaroopjadhav514/",
+                icon: <FaLinkedinIn size={16} />,
+                label: "LinkedIn",
+                color: "#0077b5",
+              },
+              {
+                href: "https://instagram.com",
+                icon: <FaInstagram size={16} />,
+                label: "Instagram",
+                color: "#e1306c",
+              },
+              {
+                href: "https://x.com",
+                icon: <FaXTwitter size={16} />,
+                label: "X / Twitter",
+                color: "#fff",
+              },
+            ].map((social) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                title={social.label}
+                whileHover={{ y: -3, scale: 1.1 }}
                 style={{
-                  marginLeft: "auto",
-                  fontSize: "12px",
-                  color: "#444",
+                  width: "44px",
+                  height: "44px",
+                  borderRadius: "10px",
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#666",
+                  textDecoration: "none",
+                  cursor: "none",
+                  transition: "all 0.2s",
+                  flex: 1,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(255,85,0,0.1)";
+                  e.currentTarget.style.borderColor = "rgba(255,85,0,0.3)";
+                  e.currentTarget.style.color = social.color;
+                  e.currentTarget.style.boxShadow =
+                    "0 4px 16px rgba(255,85,0,0.15)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                  e.currentTarget.style.color = "#666";
+                  e.currentTarget.style.boxShadow = "none";
                 }}
               >
-                ↗
-              </span>
-            </motion.a>
-
-            {/* LinkedIn */}
-            <motion.a
-              href="https://www.linkedin.com/in/swaroopjadhav514/"
-              target="_blank"
-              whileHover={{ x: 4 }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                textDecoration: "none",
-                cursor: "none",
-                padding: "7px 10px",
-                borderRadius: "8px",
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.06)",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,85,0,0.08)";
-                e.currentTarget.style.borderColor = "rgba(255,85,0,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.03)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-              }}
-            >
-              <span style={{ fontSize: "16px" }}>💼</span>
-              <div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "11px",
-                    fontWeight: 600,
-                    color: "#e0e0e0",
-                  }}
-                >
-                  LinkedIn
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "9px",
-                    color: "#555",
-                  }}
-                >
-                  @swaroopjadhav514
-                </div>
-              </div>
-              <span
-                style={{
-                  marginLeft: "auto",
-                  fontSize: "12px",
-                  color: "#444",
-                }}
-              >
-                ↗
-              </span>
-            </motion.a>
-
-            {/* Instagram */}
-            <motion.a
-              href="https://instagram.com"
-              target="_blank"
-              whileHover={{ x: 4 }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                textDecoration: "none",
-                cursor: "none",
-                padding: "7px 10px",
-                borderRadius: "8px",
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.06)",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,85,0,0.08)";
-                e.currentTarget.style.borderColor = "rgba(255,85,0,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.03)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-              }}
-            >
-              <span style={{ fontSize: "16px" }}>📸</span>
-              <div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "11px",
-                    fontWeight: 600,
-                    color: "#e0e0e0",
-                  }}
-                >
-                  Instagram
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "9px",
-                    color: "#555",
-                  }}
-                >
-                  @swaroop
-                </div>
-              </div>
-              <span
-                style={{
-                  marginLeft: "auto",
-                  fontSize: "12px",
-                  color: "#444",
-                }}
-              >
-                ↗
-              </span>
-            </motion.a>
-
-            {/* X / Twitter */}
-            <motion.a
-              href="https://x.com"
-              target="_blank"
-              whileHover={{ x: 4 }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                textDecoration: "none",
-                cursor: "none",
-                padding: "7px 10px",
-                borderRadius: "8px",
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.06)",
-                transition: "all 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(255,85,0,0.08)";
-                e.currentTarget.style.borderColor = "rgba(255,85,0,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255,255,255,0.03)";
-                e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
-              }}
-            >
-              <span style={{ fontSize: "16px" }}>🐦</span>
-              <div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "11px",
-                    fontWeight: 600,
-                    color: "#e0e0e0",
-                  }}
-                >
-                  X / Twitter
-                </div>
-                <div
-                  style={{
-                    fontFamily: "var(--font-inter)",
-                    fontSize: "9px",
-                    color: "#555",
-                  }}
-                >
-                  @swaroop
-                </div>
-              </div>
-              <span
-                style={{
-                  marginLeft: "auto",
-                  fontSize: "12px",
-                  color: "#444",
-                }}
-              >
-                ↗
-              </span>
-            </motion.a>
+                {social.icon}
+              </motion.a>
+            ))}
           </div>
         </div>
       </motion.div>
