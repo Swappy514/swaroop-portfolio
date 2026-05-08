@@ -7,6 +7,7 @@ import CustomCursor from "@/components/CustomCursor";
 import Intro from "@/components/Intro";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -23,6 +24,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Projects />
     </main>
   );
 }
