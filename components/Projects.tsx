@@ -463,3 +463,182 @@ function ProjectCard({
     </motion.div>
   );
 }
+
+export default function Projects() {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [showAll, setShowAll] = useState(false);
+
+  const filtered = projects.filter((p) =>
+    activeFilter === "All" ? true : p.filter.includes(activeFilter),
+  );
+
+  const visible = showAll ? filtered : filtered.slice(0, 6);
+
+  return (
+    <section
+      id="projects"
+      style={{ padding: "100px 48px", background: "#080808" }}
+    >
+      <style>{`
+        .projects-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 14px;
+        }
+        .proj-large {
+          grid-column: span 2;
+        }
+        .proj-small {
+          grid-column: span 1;
+        }
+        @media (max-width: 1024px) {
+          .projects-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .proj-large {
+            grid-column: span 2;
+          }
+        }
+        @media (max-width: 640px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+          }
+          .proj-large {
+            grid-column: span 1;
+          }
+          .proj-small {
+            grid-column: span 1;
+          }
+        }
+      `}</style>
+
+      <div style={{ maxWidth: "1040px", margin: "0 auto" }}>
+        {/* Label */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontSize: "10px",
+            background: "linear-gradient(135deg, #ff4500, #ffb700)",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+            letterSpacing: "4px",
+            marginBottom: "10px",
+            textTransform: "uppercase",
+          }}
+        >
+          03 / Featured Work
+        </motion.div>
+
+        {/* Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.05 }}
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontSize: "clamp(36px, 6vw, 74px)",
+            fontWeight: 800,
+            color: "#f0f0f0",
+            lineHeight: 1,
+            marginBottom: "36px",
+          }}
+        >
+          Selected
+          <br />
+          Projects.
+        </motion.h2>
+
+        {/* Filters */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          style={{
+            display: "flex",
+            gap: "8px",
+            flexWrap: "wrap",
+            marginBottom: "36px",
+          }}
+        >
+          {filters.map((f) => (
+            <button
+              key={f}
+              onClick={() => {
+                setActiveFilter(f);
+                setShowAll(false);
+              }}
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontSize: "11px",
+                padding: "6px 16px",
+                border:
+                  activeFilter === f
+                    ? "none"
+                    : "1px solid rgba(255,255,255,0.1)",
+                background:
+                  activeFilter === f
+                    ? "linear-gradient(135deg, #ff4500, #ffb700)"
+                    : "transparent",
+                color: activeFilter === f ? "#000" : "#666",
+                borderRadius: "20px",
+                cursor: "none",
+                transition: "all 0.2s",
+                fontWeight: activeFilter === f ? 700 : 400,
+              }}
+            >
+              {f}
+            </button>
+          ))}
+        </motion.div>
+
+        {/* Grid */}
+        <AnimatePresence mode="popLayout">
+          <div className="projects-grid">
+            {visible.map((project) => {
+              const isLarge = project.size === "large";
+              return (
+                <div
+                  key={project.id}
+                  className={isLarge ? "proj-large" : "proj-small"}
+                >
+                  <ProjectCard project={project} isLarge={isLarge} />
+                </div>
+              );
+            })}
+          </div>
+        </AnimatePresence>
+
+        {/* View All */}
+        {filtered.length > 6 && (
+          <div style={{ textAlign: "center", marginTop: "28px" }}>
+            <motion.button
+              onClick={() => setShowAll(!showAll)}
+              whileHover={{ y: -2 }}
+              style={{
+                padding: "11px 32px",
+                background: "transparent",
+                fontFamily: "var(--font-inter)",
+                fontSize: "11px",
+                fontWeight: 600,
+                borderRadius: "4px",
+                cursor: "none",
+                letterSpacing: "1px",
+                color: "#ff9944",
+                border: "1px solid rgba(255,130,0,0.35)",
+                transition: "all 0.2s",
+              }}
+            >
+              {showAll ? "SHOW LESS ↑" : "VIEW ALL PROJECTS ↓"}
+            </motion.button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
