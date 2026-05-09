@@ -21,12 +21,12 @@ const projects = [
     num: "001",
     name: "JavaScript 35+ Projects",
     description:
-      "A collection of 35+ mini JavaScript projects — Weather App, Music Player, Quiz Game, Snake Game, Password Generator, Image Gallery and much more. Pure JS, no frameworks, big impact.",
+      "A collection of 35+ mini JavaScript projects — Weather App, Music Player, Quiz Game, Snake Game, Password Generator and much more. Pure JS, no frameworks, big impact.",
     tags: ["JavaScript", "ES6+", "HTML5", "CSS3", "DOM APIs"],
     github: "https://github.com/Swappy514/JavaScript-Projects",
     live: null,
     status: "complete",
-    featured: true,
+    size: "large",
     filter: ["JavaScript"],
     image: "/projects/JS-35+Projects.png",
     gradient: "linear-gradient(135deg, #1a1400, #2a2000)",
@@ -36,12 +36,12 @@ const projects = [
     num: "002",
     name: "Food Munch — Responsive Website",
     description:
-      "A fully responsive restaurant website with landing page, menu explorer, delivery & payment section and Bootstrap modal popups. Clean UI, smooth experience across all devices.",
-    tags: ["HTML5", "CSS3", "Bootstrap", "Responsive Design", "JavaScript"],
+      "Fully responsive restaurant website with landing page, menu explorer, delivery & payment section and Bootstrap modal popups.",
+    tags: ["HTML5", "CSS3", "Bootstrap", "Responsive Design"],
     github: "https://github.com/Swappy514/food-much",
     live: null,
     status: "complete",
-    featured: false,
+    size: "small",
     filter: ["Responsive"],
     image: "/projects/Food-much-Responsive-website.png",
     gradient: "linear-gradient(135deg, #1a0a00, #2a1500)",
@@ -51,18 +51,12 @@ const projects = [
     num: "003",
     name: "AI Resume Evaluator Bot",
     description:
-      "Make.com automation workflow that parses resume content via Google Docs, evaluates it using AI and delivers results via email and Telegram. Zero backend code — pure automation.",
-    tags: [
-      "Make.com",
-      "AI Agents",
-      "Telegram Bot",
-      "Google Docs",
-      "Automation",
-    ],
+      "Make.com automation that parses resumes via Google Docs, evaluates using AI and delivers results via email and Telegram Bot.",
+    tags: ["Make.com", "AI Agents", "Telegram", "Automation"],
     github: null,
     live: null,
     status: "complete",
-    featured: false,
+    size: "small",
     filter: ["Automation"],
     image: "/projects/AI-Resume-Evaluator-Bot.png",
     gradient: "linear-gradient(135deg, #0a0018, #14002a)",
@@ -70,21 +64,6 @@ const projects = [
   {
     id: 4,
     num: "004",
-    name: "SmartGrocery SQL Backend",
-    description:
-      "Complete MySQL backend for a hyperlocal e-commerce platform. Scalable schema design, order tracking, inventory management and customer analytics — built as a real-world database blueprint.",
-    tags: ["MySQL", "SQL", "DBMS", "Schema Design", "Analytics"],
-    github: "https://github.com/Swappy514/SmartGrocery_SQL_Backend",
-    live: null,
-    status: "complete",
-    featured: false,
-    filter: ["SQL / DB"],
-    image: "/projects/Smart-grocery-backend.png",
-    gradient: "linear-gradient(135deg, #001a08, #002a10)",
-  },
-  {
-    id: 5,
-    num: "005",
     name: "Flask TODO App",
     description:
       "Full-stack task manager built with Flask featuring user authentication, complete CRUD operations, user profiles and a responsive UI. Built with modular Blueprint architecture and SQLAlchemy ORM.",
@@ -92,22 +71,37 @@ const projects = [
     github: "https://github.com/Swappy514/Flask-TODO-APP",
     live: null,
     status: "complete",
-    featured: false,
+    size: "large",
     filter: ["Python"],
     image: "/projects/Flask-TODO-app.png",
     gradient: "linear-gradient(135deg, #1a0800, #2a1000)",
+  },
+  {
+    id: 5,
+    num: "005",
+    name: "SmartGrocery SQL Backend",
+    description:
+      "Complete MySQL backend for a hyperlocal e-commerce platform with scalable schema, order tracking and customer analytics.",
+    tags: ["MySQL", "SQL", "DBMS", "Schema Design"],
+    github: "https://github.com/Swappy514/SmartGrocery_SQL_Backend",
+    live: null,
+    status: "complete",
+    size: "small",
+    filter: ["SQL / DB"],
+    image: "/projects/Smart-grocery-backend.png",
+    gradient: "linear-gradient(135deg, #001a08, #002a10)",
   },
   {
     id: 6,
     num: "006",
     name: "RealMart Power BI Dashboard",
     description:
-      "Retail analytics dashboard analyzing $83M+ in sales across 28K+ orders. Features geographic sales mapping, category-wise breakdown, payment mode analysis and time-series trends.",
-    tags: ["Power BI", "Data Analytics", "Kaggle", "DAX", "Visualization"],
+      "Retail analytics dashboard analyzing $83M+ in sales across 28K+ orders with geographic mapping and category breakdown.",
+    tags: ["Power BI", "Data Analytics", "Kaggle", "DAX"],
     github: null,
     live: null,
     status: "complete",
-    featured: false,
+    size: "small",
     filter: ["SQL / DB"],
     image: "/projects/PowerBI.png",
     gradient: "linear-gradient(135deg, #000818, #001030)",
@@ -117,12 +111,12 @@ const projects = [
     num: "007",
     name: "Chatting Web App",
     description:
-      "Real-time chat application using React with live messaging, user rooms and a clean modern interface. Currently in active development.",
+      "Real-time chat application using React with live messaging and user rooms. Currently in active development.",
     tags: ["React", "JavaScript", "CSS3"],
     github: null,
     live: null,
     status: "progress",
-    featured: false,
+    size: "small",
     filter: ["In Progress", "JavaScript"],
     image: null,
     gradient: "linear-gradient(135deg, #0a0a1a, #141428)",
@@ -132,428 +126,340 @@ const projects = [
     num: "008",
     name: "Clothing Website — MERN",
     description:
-      "Full-stack clothing e-commerce platform on the MERN stack with product listings, cart system and user authentication. Active development.",
+      "Full-stack clothing e-commerce on MERN stack with product listings, cart system and user authentication.",
     tags: ["MongoDB", "Express", "React", "Node.js"],
     github: null,
     live: null,
     status: "progress",
-    featured: false,
+    size: "small",
     filter: ["In Progress"],
     image: null,
     gradient: "linear-gradient(135deg, #180010, #280018)",
   },
 ];
 
-export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [showAll, setShowAll] = useState(false);
-
-  const filtered = projects.filter((p) =>
-    activeFilter === "All" ? true : p.filter.includes(activeFilter),
-  );
-
-  const visible = showAll ? filtered : filtered.slice(0, 6);
+function ProjectCard({
+  project,
+  isLarge,
+}: {
+  project: (typeof projects)[0];
+  isLarge: boolean;
+}) {
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <section
-      id="projects"
-      style={{ padding: "100px 48px", background: "#080808" }}
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        position: "relative",
+        background: "#161616",
+        borderRadius: "14px",
+        overflow: "hidden",
+        cursor: "none",
+        display: "flex",
+        flexDirection: "column",
+        border: "1px solid rgba(255,255,255,0.07)",
+        transition: "transform 0.4s ease, box-shadow 0.4s ease",
+        transform: hovered ? "translateY(-6px)" : "translateY(0)",
+        boxShadow: hovered
+          ? "0 28px 56px rgba(0,0,0,0.8)"
+          : "0 4px 20px rgba(0,0,0,0.3)",
+      }}
     >
-      <div style={{ maxWidth: "1040px", margin: "0 auto" }}>
-        {/* Label */}
+      {/* Animated top border — draws from center outward */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "2px",
+          zIndex: 10,
+          overflow: "hidden",
+          borderRadius: "14px 14px 0 0",
+        }}
+      >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: hovered ? 1 : 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "2px",
+            background:
+              "linear-gradient(to right, transparent 0%, #ff4500 25%, #ffb700 50%, #ff4500 75%, transparent 100%)",
+            transformOrigin: "center",
+          }}
+        />
+      </div>
+
+      {/* Side glow effect when hovered */}
+      {hovered && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(135deg, rgba(255,69,0,0.04), transparent 60%)",
+            pointerEvents: "none",
+            zIndex: 1,
+            borderRadius: "14px",
+            border: "1px solid rgba(255,130,0,0.2)",
+          }}
+        />
+      )}
+
+      {/* Image Area */}
+      <div
+        style={{
+          position: "relative",
+          height: isLarge ? "220px" : "150px",
+          overflow: "hidden",
+          background: project.gradient,
+          flexShrink: 0,
+        }}
+      >
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.name}
+            fill
+            style={{
+              objectFit: "cover",
+              objectPosition: "top",
+              opacity: hovered ? 0.85 : 0.7,
+              transition: "opacity 0.4s, transform 0.5s",
+              transform: hovered ? "scale(1.04)" : "scale(1)",
+            }}
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
+        ) : (
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: "52px",
+              opacity: 0.1,
+            }}
+          >
+            🔨
+          </div>
+        )}
+
+        {/* Bottom fade */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "65%",
+            background: "linear-gradient(to top, #161616 0%, transparent 100%)",
+            pointerEvents: "none",
+          }}
+        />
+
+        {/* FEATURED badge */}
+        {isLarge && project.status === "complete" && (
+          <div
+            style={{
+              position: "absolute",
+              top: "12px",
+              left: "12px",
+              fontFamily: "var(--font-inter)",
+              fontSize: "8px",
+              fontWeight: 700,
+              background: "linear-gradient(135deg, #ff4500, #ffb700)",
+              color: "#000",
+              padding: "3px 10px",
+              borderRadius: "3px",
+              letterSpacing: "1px",
+              zIndex: 3,
+            }}
+          >
+            FEATURED
+          </div>
+        )}
+
+        {/* BUILDING badge */}
+        {project.status === "progress" && (
+          <div
+            style={{
+              position: "absolute",
+              top: "12px",
+              left: "12px",
+              fontFamily: "var(--font-inter)",
+              fontSize: "8px",
+              fontWeight: 700,
+              color: "#22c55e",
+              border: "1px solid rgba(34,197,94,0.5)",
+              padding: "3px 10px",
+              borderRadius: "3px",
+              letterSpacing: "1px",
+              background: "rgba(34,197,94,0.1)",
+              zIndex: 3,
+            }}
+          >
+            BUILDING
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div
+        style={{
+          padding: "18px 22px 22px",
+          display: "flex",
+          flexDirection: "column",
+          flex: 1,
+          position: "relative",
+          zIndex: 2,
+        }}
+      >
+        <div
           style={{
             fontFamily: "var(--font-inter)",
-            fontSize: "10px",
+            fontSize: "9px",
             background: "linear-gradient(135deg, #ff4500, #ffb700)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            letterSpacing: "4px",
-            marginBottom: "10px",
-            textTransform: "uppercase",
+            marginBottom: "5px",
+            letterSpacing: "2px",
           }}
         >
-          03 / Featured Work
-        </motion.div>
-
-        {/* Title */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.05 }}
-          style={{
-            fontFamily: "var(--font-inter)",
-            fontSize: "clamp(36px, 6vw, 74px)",
-            fontWeight: 800,
-            color: "#f0f0f0",
-            lineHeight: 1,
-            marginBottom: "36px",
-          }}
-        >
-          Selected
-          <br />
-          Projects.
-        </motion.h2>
-
-        {/* Filters */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          style={{
-            display: "flex",
-            gap: "8px",
-            flexWrap: "wrap",
-            marginBottom: "36px",
-          }}
-        >
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => {
-                setActiveFilter(f);
-                setShowAll(false);
-              }}
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontSize: "11px",
-                padding: "6px 16px",
-                border:
-                  activeFilter === f
-                    ? "none"
-                    : "1px solid rgba(255,255,255,0.1)",
-                background:
-                  activeFilter === f
-                    ? "linear-gradient(135deg, #ff4500, #ffb700)"
-                    : "transparent",
-                color: activeFilter === f ? "#000" : "#666",
-                borderRadius: "20px",
-                cursor: "none",
-                transition: "all 0.2s",
-                fontWeight: activeFilter === f ? 700 : 400,
-              }}
-            >
-              {f}
-            </button>
-          ))}
-        </motion.div>
-
-        {/* Bento Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "14px",
-          }}
-        >
-          <AnimatePresence mode="popLayout">
-            {visible.map((project, index) => (
-              <motion.div
-                key={project.id}
-                layout
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ delay: index * 0.06 }}
-                whileHover={{
-                  y: -6,
-                  boxShadow:
-                    "0 28px 56px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,100,0,0.2)",
-                }}
-                style={{
-                  gridColumn: project.featured ? "span 2" : "span 1",
-                  position: "relative",
-                  background: "#161616",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  borderRadius: "14px",
-                  overflow: "hidden",
-                  cursor: "none",
-                  transition: "border-color 0.3s",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                {/* Image Area */}
-                <div
-                  style={{
-                    position: "relative",
-                    height: project.featured ? "220px" : "160px",
-                    overflow: "hidden",
-                    background: project.gradient,
-                    flexShrink: 0,
-                  }}
-                >
-                  {project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={project.name}
-                      fill
-                      style={{
-                        objectFit: "cover",
-                        objectPosition: "top",
-                        opacity: 0.75,
-                        transition: "opacity 0.3s, transform 0.5s",
-                      }}
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  ) : (
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "48px",
-                        opacity: 0.15,
-                      }}
-                    >
-                      🔨
-                    </div>
-                  )}
-
-                  {/* Gradient fade bottom */}
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      height: "70%",
-                      background:
-                        "linear-gradient(to top, #161616 0%, transparent 100%)",
-                      pointerEvents: "none",
-                    }}
-                  />
-
-                  {/* Featured badge */}
-                  {project.featured && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "12px",
-                        left: "12px",
-                        fontFamily: "var(--font-inter)",
-                        fontSize: "8px",
-                        fontWeight: 700,
-                        background: "linear-gradient(135deg, #ff4500, #ffb700)",
-                        color: "#000",
-                        padding: "3px 10px",
-                        borderRadius: "3px",
-                        letterSpacing: "1px",
-                        zIndex: 2,
-                      }}
-                    >
-                      FEATURED
-                    </div>
-                  )}
-
-                  {/* Building badge */}
-                  {project.status === "progress" && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "12px",
-                        left: "12px",
-                        fontFamily: "var(--font-inter)",
-                        fontSize: "8px",
-                        fontWeight: 700,
-                        color: "#22c55e",
-                        border: "1px solid rgba(34,197,94,0.5)",
-                        padding: "3px 10px",
-                        borderRadius: "3px",
-                        letterSpacing: "1px",
-                        background: "rgba(34,197,94,0.1)",
-                        zIndex: 2,
-                      }}
-                    >
-                      BUILDING
-                    </div>
-                  )}
-                </div>
-
-                {/* Content Area */}
-                <div
-                  style={{
-                    padding: "20px 24px 24px",
-                    display: "flex",
-                    flexDirection: "column",
-                    flex: 1,
-                  }}
-                >
-                  {/* Project number */}
-                  <div
-                    style={{
-                      fontFamily: "var(--font-inter)",
-                      fontSize: "9px",
-                      background: "linear-gradient(135deg, #ff4500, #ffb700)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                      marginBottom: "6px",
-                      letterSpacing: "2px",
-                      opacity: 0.7,
-                    }}
-                  >
-                    PROJECT {project.num}
-                  </div>
-
-                  {/* Name */}
-                  <div
-                    style={{
-                      fontFamily: "var(--font-inter)",
-                      fontSize: "clamp(15px, 1.8vw, 20px)",
-                      fontWeight: 700,
-                      color: "#f0f0f0",
-                      marginBottom: "8px",
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {project.name}
-                  </div>
-
-                  {/* Description */}
-                  <div
-                    style={{
-                      fontSize: "11px",
-                      color: "#555",
-                      lineHeight: 1.8,
-                      marginBottom: "14px",
-                      fontFamily: "var(--font-inter)",
-                      flex: 1,
-                    }}
-                  >
-                    {project.description}
-                  </div>
-
-                  {/* Tags */}
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "5px",
-                      flexWrap: "wrap",
-                      marginBottom: "14px",
-                    }}
-                  >
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        style={{
-                          fontFamily: "var(--font-inter)",
-                          fontSize: "9px",
-                          border: "1px solid rgba(255,130,0,0.2)",
-                          color: "#cc7733",
-                          padding: "2px 8px",
-                          borderRadius: "3px",
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Links */}
-                  <div style={{ display: "flex", gap: "8px" }}>
-                    {project.github && (
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        whileHover={{ y: -2 }}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "6px",
-                          fontFamily: "var(--font-inter)",
-                          fontSize: "10px",
-                          color: "#ff9944",
-                          background: "rgba(255,85,0,0.08)",
-                          border: "1px solid rgba(255,130,0,0.2)",
-                          padding: "5px 12px",
-                          borderRadius: "4px",
-                          textDecoration: "none",
-                          cursor: "none",
-                        }}
-                      >
-                        <FaGithub size={11} />
-                        GitHub
-                      </motion.a>
-                    )}
-                    {project.live && (
-                      <motion.a
-                        href={project.live}
-                        target="_blank"
-                        whileHover={{ y: -2 }}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "6px",
-                          fontFamily: "var(--font-inter)",
-                          fontSize: "10px",
-                          color: "#ff9944",
-                          background: "rgba(255,85,0,0.08)",
-                          border: "1px solid rgba(255,130,0,0.2)",
-                          padding: "5px 12px",
-                          borderRadius: "4px",
-                          textDecoration: "none",
-                          cursor: "none",
-                        }}
-                      >
-                        <FaExternalLinkAlt size={10} />
-                        Live Demo
-                      </motion.a>
-                    )}
-                    {!project.github && !project.live && (
-                      <span
-                        style={{
-                          fontFamily: "var(--font-inter)",
-                          fontSize: "10px",
-                          color: "#333",
-                          fontStyle: "italic",
-                        }}
-                      >
-                        {project.status === "progress"
-                          ? "In development..."
-                          : "Private project"}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          PROJECT {project.num}
         </div>
 
-        {/* View All Button */}
-        {filtered.length > 6 && (
-          <div style={{ textAlign: "center", marginTop: "28px" }}>
-            <motion.button
-              onClick={() => setShowAll(!showAll)}
-              whileHover={{ y: -2 }}
+        <div
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontSize: isLarge
+              ? "clamp(16px, 1.8vw, 22px)"
+              : "clamp(14px, 1.4vw, 18px)",
+            fontWeight: 700,
+            color: "#f0f0f0",
+            marginBottom: "8px",
+            lineHeight: 1.2,
+          }}
+        >
+          {project.name}
+        </div>
+
+        <div
+          style={{
+            fontSize: "11px",
+            color: "#555",
+            lineHeight: 1.8,
+            marginBottom: "12px",
+            fontFamily: "var(--font-inter)",
+            flex: 1,
+          }}
+        >
+          {project.description}
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "5px",
+            flexWrap: "wrap",
+            marginBottom: "12px",
+          }}
+        >
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
               style={{
-                padding: "11px 32px",
-                background: "transparent",
                 fontFamily: "var(--font-inter)",
-                fontSize: "11px",
-                fontWeight: 600,
-                borderRadius: "4px",
-                cursor: "none",
-                letterSpacing: "1px",
-                color: "#ff9944",
-                border: "1px solid rgba(255,130,0,0.35)",
-                transition: "all 0.2s",
+                fontSize: "9px",
+                border: "1px solid rgba(255,130,0,0.2)",
+                color: "#cc7733",
+                padding: "2px 8px",
+                borderRadius: "3px",
               }}
             >
-              {showAll ? "SHOW LESS ↑" : "VIEW ALL PROJECTS ↓"}
-            </motion.button>
-          </div>
-        )}
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <div style={{ display: "flex", gap: "8px" }}>
+          {project.github && (
+            <motion.a
+              href={project.github}
+              target="_blank"
+              whileHover={{ y: -2 }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                fontFamily: "var(--font-inter)",
+                fontSize: "10px",
+                color: "#ff9944",
+                background: "rgba(255,85,0,0.08)",
+                border: "1px solid rgba(255,130,0,0.2)",
+                padding: "5px 12px",
+                borderRadius: "4px",
+                textDecoration: "none",
+                cursor: "none",
+              }}
+            >
+              <FaGithub size={11} />
+              GitHub
+            </motion.a>
+          )}
+          {project.live && (
+            <motion.a
+              href={project.live}
+              target="_blank"
+              whileHover={{ y: -2 }}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                fontFamily: "var(--font-inter)",
+                fontSize: "10px",
+                color: "#ff9944",
+                background: "rgba(255,85,0,0.08)",
+                border: "1px solid rgba(255,130,0,0.2)",
+                padding: "5px 12px",
+                borderRadius: "4px",
+                textDecoration: "none",
+                cursor: "none",
+              }}
+            >
+              <FaExternalLinkAlt size={10} />
+              Live Demo
+            </motion.a>
+          )}
+          {!project.github && !project.live && (
+            <span
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontSize: "10px",
+                color: "#333",
+                fontStyle: "italic",
+              }}
+            >
+              {project.status === "progress"
+                ? "In development..."
+                : "Private project"}
+            </span>
+          )}
+        </div>
       </div>
-    </section>
+    </motion.div>
   );
 }
