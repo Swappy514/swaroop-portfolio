@@ -136,3 +136,18 @@ body {
     transform: translate(-50%, -50%) scale(1.2);
   }
 }
+
+@media (max-width: 640px) {
+  #projects {
+    padding: 60px 20px !important;
+  }
+  #about {
+    padding: 40px 20px !important;
+    flex-direction: column !important;
+  }
+  .about-dark-panel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 300px !important;
+  }
+}
