@@ -26,7 +26,7 @@ const projects = [
     github: "https://github.com/Swappy514/JavaScript-Projects",
     live: null,
     status: "complete",
-    size: "large",
+    size: "hero",
     filter: ["JavaScript"],
     image: "/projects/JS-35+Projects.png",
     gradient: "linear-gradient(135deg, #1a1400, #2a2000)",
@@ -34,14 +34,14 @@ const projects = [
   {
     id: 2,
     num: "002",
-    name: "Food Munch — Responsive Website",
+    name: "Food Munch",
     description:
-      "Fully responsive restaurant website with landing page, menu explorer, delivery & payment section and Bootstrap modal popups.",
-    tags: ["HTML5", "CSS3", "Bootstrap", "Responsive Design"],
+      "Responsive restaurant website with landing page, menu explorer and Bootstrap modals.",
+    tags: ["HTML5", "CSS3", "Bootstrap", "Responsive"],
     github: "https://github.com/Swappy514/food-much",
     live: null,
     status: "complete",
-    size: "small",
+    size: "normal",
     filter: ["Responsive"],
     image: "/projects/Food-much-Responsive-website.png",
     gradient: "linear-gradient(135deg, #1a0a00, #2a1500)",
@@ -49,14 +49,14 @@ const projects = [
   {
     id: 3,
     num: "003",
-    name: "AI Resume Evaluator Bot",
+    name: "AI Resume Evaluator",
     description:
-      "Make.com automation that parses resumes via Google Docs, evaluates using AI and delivers results via email and Telegram Bot.",
+      "Make.com workflow that evaluates resumes using AI and delivers results via email and Telegram.",
     tags: ["Make.com", "AI Agents", "Telegram", "Automation"],
     github: null,
     live: null,
     status: "complete",
-    size: "small",
+    size: "normal",
     filter: ["Automation"],
     image: "/projects/AI-Resume-Evaluator-Bot.png",
     gradient: "linear-gradient(135deg, #0a0018, #14002a)",
@@ -66,12 +66,12 @@ const projects = [
     num: "004",
     name: "Flask TODO App",
     description:
-      "Full-stack task manager built with Flask featuring user authentication, complete CRUD operations, user profiles and a responsive UI. Built with modular Blueprint architecture and SQLAlchemy ORM.",
-    tags: ["Python", "Flask", "SQLAlchemy", "Jinja2", "Bootstrap"],
+      "Full-stack task manager with Flask, user authentication, CRUD ops and SQLAlchemy ORM.",
+    tags: ["Python", "Flask", "SQLAlchemy", "Bootstrap"],
     github: "https://github.com/Swappy514/Flask-TODO-APP",
     live: null,
     status: "complete",
-    size: "large",
+    size: "normal",
     filter: ["Python"],
     image: "/projects/Flask-TODO-app.png",
     gradient: "linear-gradient(135deg, #1a0800, #2a1000)",
@@ -79,14 +79,14 @@ const projects = [
   {
     id: 5,
     num: "005",
-    name: "SmartGrocery SQL Backend",
+    name: "SmartGrocery SQL",
     description:
-      "Complete MySQL backend for a hyperlocal e-commerce platform with scalable schema, order tracking and customer analytics.",
-    tags: ["MySQL", "SQL", "DBMS", "Schema Design"],
+      "Complete MySQL backend for hyperlocal e-commerce with schema, order tracking and analytics.",
+    tags: ["MySQL", "SQL", "DBMS", "Analytics"],
     github: "https://github.com/Swappy514/SmartGrocery_SQL_Backend",
     live: null,
     status: "complete",
-    size: "small",
+    size: "normal",
     filter: ["SQL / DB"],
     image: "/projects/Smart-grocery-backend.png",
     gradient: "linear-gradient(135deg, #001a08, #002a10)",
@@ -94,14 +94,14 @@ const projects = [
   {
     id: 6,
     num: "006",
-    name: "RealMart Power BI Dashboard",
+    name: "RealMart Power BI",
     description:
-      "Retail analytics dashboard analyzing $83M+ in sales across 28K+ orders with geographic mapping and category breakdown.",
-    tags: ["Power BI", "Data Analytics", "Kaggle", "DAX"],
+      "Retail analytics dashboard — $83M+ sales, 28K+ orders, geographic mapping and category breakdown.",
+    tags: ["Power BI", "Analytics", "Kaggle", "DAX"],
     github: null,
     live: null,
     status: "complete",
-    size: "small",
+    size: "normal",
     filter: ["SQL / DB"],
     image: "/projects/PowerBI.png",
     gradient: "linear-gradient(135deg, #000818, #001030)",
@@ -109,14 +109,14 @@ const projects = [
   {
     id: 7,
     num: "007",
-    name: "Chatting Web App",
+    name: "Chat Web App",
     description:
-      "Real-time chat application using React with live messaging and user rooms. Currently in active development.",
+      "Real-time chat with React, live messaging and user rooms. In active development.",
     tags: ["React", "JavaScript", "CSS3"],
     github: null,
     live: null,
     status: "progress",
-    size: "small",
+    size: "normal",
     filter: ["In Progress", "JavaScript"],
     image: null,
     gradient: "linear-gradient(135deg, #0a0a1a, #141428)",
@@ -124,54 +124,44 @@ const projects = [
   {
     id: 8,
     num: "008",
-    name: "Clothing Website — MERN",
+    name: "Clothing MERN App",
     description:
-      "Full-stack clothing e-commerce on MERN stack with product listings, cart system and user authentication.",
+      "Full-stack clothing store on MERN with product listings, cart and authentication.",
     tags: ["MongoDB", "Express", "React", "Node.js"],
     github: null,
     live: null,
     status: "progress",
-    size: "small",
+    size: "normal",
     filter: ["In Progress"],
     image: null,
     gradient: "linear-gradient(135deg, #180010, #280018)",
   },
 ];
 
-function ProjectCard({
-  project,
-  isLarge,
-}: {
-  project: (typeof projects)[0];
-  isLarge: boolean;
-}) {
+function HeroCard({ project }: { project: (typeof projects)[0] }) {
   const [hovered, setHovered] = useState(false);
-
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
       style={{
         position: "relative",
-        background: "#161616",
-        borderRadius: "14px",
+        borderRadius: "16px",
         overflow: "hidden",
+        background: project.gradient,
+        height: "340px",
         cursor: "none",
-        display: "flex",
-        flexDirection: "column",
         border: "1px solid rgba(255,255,255,0.07)",
-        transition: "transform 0.4s ease, box-shadow 0.4s ease",
-        transform: hovered ? "translateY(-6px)" : "translateY(0)",
+        transition: "transform 0.4s, box-shadow 0.4s",
+        transform: hovered ? "translateY(-4px)" : "translateY(0)",
         boxShadow: hovered
-          ? "0 28px 56px rgba(0,0,0,0.8)"
-          : "0 4px 20px rgba(0,0,0,0.3)",
+          ? "0 32px 64px rgba(0,0,0,0.8)"
+          : "0 8px 32px rgba(0,0,0,0.4)",
       }}
     >
-      {/* Animated top border — draws from center outward */}
+      {/* Top border animation */}
       <div
         style={{
           position: "absolute",
@@ -180,28 +170,232 @@ function ProjectCard({
           right: 0,
           height: "2px",
           zIndex: 10,
-          overflow: "hidden",
-          borderRadius: "14px 14px 0 0",
         }}
       >
         <motion.div
-          initial={{ scaleX: 0 }}
           animate={{ scaleX: hovered ? 1 : 0 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "2px",
+            inset: 0,
             background:
-              "linear-gradient(to right, transparent 0%, #ff4500 25%, #ffb700 50%, #ff4500 75%, transparent 100%)",
+              "linear-gradient(to right, transparent, #ff4500, #ffb700, #ff4500, transparent)",
             transformOrigin: "center",
           }}
         />
       </div>
 
-      {/* Side glow effect when hovered */}
+      {/* Image */}
+      {project.image && (
+        <Image
+          src={project.image}
+          alt={project.name}
+          fill
+          style={{
+            objectFit: "cover",
+            objectPosition: "center",
+            opacity: hovered ? 0.7 : 0.55,
+            transition: "opacity 0.4s, transform 0.5s",
+            transform: hovered ? "scale(1.03)" : "scale(1)",
+          }}
+          sizes="100vw"
+        />
+      )}
+
+      {/* Dark overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          background:
+            "linear-gradient(to top, rgba(10,10,10,0.97) 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,0.1) 100%)",
+        }}
+      />
+
+      {/* Content at bottom */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          padding: "28px 32px",
+          zIndex: 5,
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "16px",
+          }}
+        >
+          <div>
+            <div
+              style={{
+                display: "inline-block",
+                fontFamily: "var(--font-inter)",
+                fontSize: "8px",
+                fontWeight: 700,
+                background: "linear-gradient(135deg, #ff4500, #ffb700)",
+                color: "#000",
+                padding: "3px 10px",
+                borderRadius: "3px",
+                letterSpacing: "2px",
+                marginBottom: "10px",
+              }}
+            >
+              ⭐ FEATURED PROJECT
+            </div>
+            <div
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontSize: "clamp(22px, 3vw, 32px)",
+                fontWeight: 800,
+                color: "#fff",
+                marginBottom: "6px",
+              }}
+            >
+              {project.name}
+            </div>
+            <div
+              style={{
+                fontSize: "13px",
+                color: "#888",
+                fontFamily: "var(--font-inter)",
+                maxWidth: "600px",
+              }}
+            >
+              {project.description}
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              alignItems: "flex-end",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                gap: "6px",
+                flexWrap: "wrap",
+                justifyContent: "flex-end",
+              }}
+            >
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  style={{
+                    fontFamily: "var(--font-inter)",
+                    fontSize: "9px",
+                    border: "1px solid rgba(255,130,0,0.25)",
+                    color: "#cc7733",
+                    padding: "2px 8px",
+                    borderRadius: "3px",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            {project.github && (
+              <motion.a
+                href={project.github}
+                target="_blank"
+                whileHover={{ y: -2 }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "11px",
+                  fontWeight: 600,
+                  color: "#000",
+                  background: "linear-gradient(135deg, #ff4500, #ffb700)",
+                  padding: "8px 18px",
+                  borderRadius: "4px",
+                  textDecoration: "none",
+                  cursor: "none",
+                }}
+              >
+                <FaGithub size={12} />
+                View on GitHub
+              </motion.a>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
+function NormalCard({
+  project,
+  index,
+}: {
+  project: (typeof projects)[0];
+  index: number;
+}) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <motion.div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.06 }}
+      style={{
+        position: "relative",
+        background: "#161616",
+        border: "1px solid rgba(255,255,255,0.07)",
+        borderRadius: "14px",
+        overflow: "hidden",
+        cursor: "none",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        transition: "transform 0.4s, box-shadow 0.4s, border-color 0.3s",
+        transform: hovered ? "translateY(-5px)" : "translateY(0)",
+        boxShadow: hovered
+          ? "0 24px 48px rgba(0,0,0,0.8)"
+          : "0 4px 16px rgba(0,0,0,0.3)",
+        borderColor: hovered
+          ? "rgba(255,130,0,0.25)"
+          : "rgba(255,255,255,0.07)",
+      }}
+    >
+      {/* Top border animation */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "2px",
+          zIndex: 10,
+        }}
+      >
+        <motion.div
+          animate={{ scaleX: hovered ? 1 : 0 }}
+          transition={{ duration: 0.45, ease: "easeInOut" }}
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(to right, transparent, #ff4500, #ffb700, #ff4500, transparent)",
+            transformOrigin: "center",
+          }}
+        />
+      </div>
+
+      {/* Hover overlay */}
       {hovered && (
         <div
           style={{
@@ -211,17 +405,15 @@ function ProjectCard({
               "linear-gradient(135deg, rgba(255,69,0,0.04), transparent 60%)",
             pointerEvents: "none",
             zIndex: 1,
-            borderRadius: "14px",
-            border: "1px solid rgba(255,130,0,0.2)",
           }}
         />
       )}
 
-      {/* Image Area */}
+      {/* Image */}
       <div
         style={{
           position: "relative",
-          height: isLarge ? "220px" : "150px",
+          height: "160px",
           overflow: "hidden",
           background: project.gradient,
           flexShrink: 0,
@@ -235,11 +427,11 @@ function ProjectCard({
             style={{
               objectFit: "cover",
               objectPosition: "top",
-              opacity: hovered ? 0.85 : 0.7,
+              opacity: hovered ? 0.85 : 0.65,
               transition: "opacity 0.4s, transform 0.5s",
-              transform: hovered ? "scale(1.04)" : "scale(1)",
+              transform: hovered ? "scale(1.05)" : "scale(1)",
             }}
-            sizes="(max-width: 768px) 100vw, 50vw"
+            sizes="(max-width: 640px) 100vw, 33vw"
           />
         ) : (
           <div
@@ -249,66 +441,41 @@ function ProjectCard({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              fontSize: "52px",
-              opacity: 0.1,
+              fontSize: "48px",
+              opacity: 0.08,
             }}
           >
             🔨
           </div>
         )}
-
-        {/* Bottom fade */}
         <div
           style={{
             position: "absolute",
             bottom: 0,
             left: 0,
             right: 0,
-            height: "65%",
-            background: "linear-gradient(to top, #161616 0%, transparent 100%)",
+            height: "60%",
+            background: "linear-gradient(to top, #161616, transparent)",
             pointerEvents: "none",
           }}
         />
 
-        {/* FEATURED badge */}
-        {isLarge && project.status === "complete" && (
-          <div
-            style={{
-              position: "absolute",
-              top: "12px",
-              left: "12px",
-              fontFamily: "var(--font-inter)",
-              fontSize: "8px",
-              fontWeight: 700,
-              background: "linear-gradient(135deg, #ff4500, #ffb700)",
-              color: "#000",
-              padding: "3px 10px",
-              borderRadius: "3px",
-              letterSpacing: "1px",
-              zIndex: 3,
-            }}
-          >
-            FEATURED
-          </div>
-        )}
-
-        {/* BUILDING badge */}
         {project.status === "progress" && (
           <div
             style={{
               position: "absolute",
-              top: "12px",
-              left: "12px",
+              top: "10px",
+              left: "10px",
               fontFamily: "var(--font-inter)",
               fontSize: "8px",
               fontWeight: 700,
               color: "#22c55e",
-              border: "1px solid rgba(34,197,94,0.5)",
-              padding: "3px 10px",
+              border: "1px solid rgba(34,197,94,0.4)",
+              padding: "2px 8px",
               borderRadius: "3px",
-              letterSpacing: "1px",
-              background: "rgba(34,197,94,0.1)",
+              background: "rgba(34,197,94,0.08)",
               zIndex: 3,
+              letterSpacing: "1px",
             }}
           >
             BUILDING
@@ -319,7 +486,7 @@ function ProjectCard({
       {/* Content */}
       <div
         style={{
-          padding: "18px 22px 22px",
+          padding: "16px 20px 20px",
           display: "flex",
           flexDirection: "column",
           flex: 1,
@@ -335,7 +502,7 @@ function ProjectCard({
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
             backgroundClip: "text",
-            marginBottom: "5px",
+            marginBottom: "4px",
             letterSpacing: "2px",
           }}
         >
@@ -345,9 +512,7 @@ function ProjectCard({
         <div
           style={{
             fontFamily: "var(--font-inter)",
-            fontSize: isLarge
-              ? "clamp(16px, 1.8vw, 22px)"
-              : "clamp(14px, 1.4vw, 18px)",
+            fontSize: "16px",
             fontWeight: 700,
             color: "#f0f0f0",
             marginBottom: "8px",
@@ -361,7 +526,7 @@ function ProjectCard({
           style={{
             fontSize: "11px",
             color: "#555",
-            lineHeight: 1.8,
+            lineHeight: 1.75,
             marginBottom: "12px",
             fontFamily: "var(--font-inter)",
             flex: 1,
@@ -373,7 +538,7 @@ function ProjectCard({
         <div
           style={{
             display: "flex",
-            gap: "5px",
+            gap: "4px",
             flexWrap: "wrap",
             marginBottom: "12px",
           }}
@@ -386,7 +551,7 @@ function ProjectCard({
                 fontSize: "9px",
                 border: "1px solid rgba(255,130,0,0.2)",
                 color: "#cc7733",
-                padding: "2px 8px",
+                padding: "2px 7px",
                 borderRadius: "3px",
               }}
             >
@@ -395,7 +560,7 @@ function ProjectCard({
           ))}
         </div>
 
-        <div style={{ display: "flex", gap: "8px" }}>
+        <div style={{ display: "flex", gap: "7px" }}>
           {project.github && (
             <motion.a
               href={project.github}
@@ -404,13 +569,13 @@ function ProjectCard({
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "6px",
+                gap: "5px",
                 fontFamily: "var(--font-inter)",
                 fontSize: "10px",
                 color: "#ff9944",
                 background: "rgba(255,85,0,0.08)",
                 border: "1px solid rgba(255,130,0,0.2)",
-                padding: "5px 12px",
+                padding: "5px 11px",
                 borderRadius: "4px",
                 textDecoration: "none",
                 cursor: "none",
@@ -428,20 +593,20 @@ function ProjectCard({
               style={{
                 display: "flex",
                 alignItems: "center",
-                gap: "6px",
+                gap: "5px",
                 fontFamily: "var(--font-inter)",
                 fontSize: "10px",
                 color: "#ff9944",
                 background: "rgba(255,85,0,0.08)",
                 border: "1px solid rgba(255,130,0,0.2)",
-                padding: "5px 12px",
+                padding: "5px 11px",
                 borderRadius: "4px",
                 textDecoration: "none",
                 cursor: "none",
               }}
             >
               <FaExternalLinkAlt size={10} />
-              Live Demo
+              Live
             </motion.a>
           )}
           {!project.github && !project.live && (
@@ -472,7 +637,9 @@ export default function Projects() {
     activeFilter === "All" ? true : p.filter.includes(activeFilter),
   );
 
-  const visible = showAll ? filtered : filtered.slice(0, 6);
+  const heroProject = filtered.find((p) => p.size === "hero");
+  const normalProjects = filtered.filter((p) => p.size !== "hero");
+  const visibleNormal = showAll ? normalProjects : normalProjects.slice(0, 5);
 
   return (
     <section
@@ -480,34 +647,23 @@ export default function Projects() {
       style={{ padding: "100px 48px", background: "#080808" }}
     >
       <style>{`
-        .projects-grid {
+        .normal-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 14px;
+          margin-top: 14px;
         }
-        .proj-large {
-          grid-column: span 2;
-        }
-        .proj-small {
-          grid-column: span 1;
-        }
-        @media (max-width: 1024px) {
-          .projects-grid {
+        @media (max-width: 900px) {
+          .normal-grid {
             grid-template-columns: repeat(2, 1fr);
           }
-          .proj-large {
-            grid-column: span 2;
-          }
         }
-        @media (max-width: 640px) {
-          .projects-grid {
+        @media (max-width: 580px) {
+          .normal-grid {
             grid-template-columns: 1fr;
           }
-          .proj-large {
-            grid-column: span 1;
-          }
-          .proj-small {
-            grid-column: span 1;
+          #projects {
+            padding: 60px 20px !important;
           }
         }
       `}</style>
@@ -563,7 +719,7 @@ export default function Projects() {
             display: "flex",
             gap: "8px",
             flexWrap: "wrap",
-            marginBottom: "36px",
+            marginBottom: "32px",
           }}
         >
           {filters.map((f) => (
@@ -597,25 +753,31 @@ export default function Projects() {
           ))}
         </motion.div>
 
-        {/* Grid */}
+        {/* Hero Project */}
+        <AnimatePresence mode="wait">
+          {heroProject && (
+            <motion.div
+              key={heroProject.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <HeroCard project={heroProject} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Normal Grid */}
         <AnimatePresence mode="popLayout">
-          <div className="projects-grid">
-            {visible.map((project) => {
-              const isLarge = project.size === "large";
-              return (
-                <div
-                  key={project.id}
-                  className={isLarge ? "proj-large" : "proj-small"}
-                >
-                  <ProjectCard project={project} isLarge={isLarge} />
-                </div>
-              );
-            })}
+          <div className="normal-grid">
+            {visibleNormal.map((project, index) => (
+              <NormalCard key={project.id} project={project} index={index} />
+            ))}
           </div>
         </AnimatePresence>
 
         {/* View All */}
-        {filtered.length > 6 && (
+        {normalProjects.length > 5 && (
           <div style={{ textAlign: "center", marginTop: "28px" }}>
             <motion.button
               onClick={() => setShowAll(!showAll)}
