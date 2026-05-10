@@ -655,26 +655,41 @@ export default function Projects() {
       style={{ padding: "100px 48px", background: "#080808" }}
     >
       <style>{`
-        .normal-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 14px;
-          margin-top: 14px;
-        }
-        @media (max-width: 900px) {
-          .normal-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-        @media (max-width: 580px) {
-          .normal-grid {
-            grid-template-columns: 1fr;
-          }
-          #projects {
-            padding: 60px 20px !important;
-          }
-        }
-      `}</style>
+  .normal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 14px;
+  }
+  @media (max-width: 900px) {
+    .normal-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 580px) {
+    .normal-grid {
+      grid-template-columns: 1fr;
+    }
+    #projects {
+      padding: 60px 20px !important;
+    }
+    .hero-card {
+      height: 460px !important;
+    }
+    .hero-content {
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      gap: 12px !important;
+    }
+    .hero-right {
+      align-items: flex-start !important;
+      width: 100% !important;
+    }
+    .hero-tags {
+      justify-content: flex-start !important;
+    }
+  }
+`}</style>
 
       <div style={{ maxWidth: "1040px", margin: "0 auto" }}>
         {/* Label */}
