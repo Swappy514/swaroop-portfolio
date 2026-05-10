@@ -146,6 +146,7 @@ function HeroCard({ project }: { project: (typeof projects)[0] }) {
       onMouseLeave={() => setHovered(false)}
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
+      className="hero-card"
       style={{
         position: "relative",
         borderRadius: "16px",
@@ -219,11 +220,12 @@ function HeroCard({ project }: { project: (typeof projects)[0] }) {
           bottom: 0,
           left: 0,
           right: 0,
-          padding: "28px 32px",
+          padding: "24px 28px",
           zIndex: 5,
         }}
       >
         <div
+          className="hero-content"
           style={{
             display: "flex",
             alignItems: "flex-end",
@@ -232,7 +234,8 @@ function HeroCard({ project }: { project: (typeof projects)[0] }) {
             gap: "16px",
           }}
         >
-          <div>
+          {/* Left side */}
+          <div style={{ flex: 1, minWidth: "200px" }}>
             <div
               style={{
                 display: "inline-block",
@@ -252,27 +255,31 @@ function HeroCard({ project }: { project: (typeof projects)[0] }) {
             <div
               style={{
                 fontFamily: "var(--font-inter)",
-                fontSize: "clamp(22px, 3vw, 32px)",
+                fontSize: "clamp(20px, 3vw, 32px)",
                 fontWeight: 800,
                 color: "#fff",
                 marginBottom: "6px",
+                lineHeight: 1.1,
               }}
             >
               {project.name}
             </div>
             <div
               style={{
-                fontSize: "13px",
+                fontSize: "12px",
                 color: "#888",
                 fontFamily: "var(--font-inter)",
-                maxWidth: "600px",
+                maxWidth: "500px",
+                lineHeight: 1.7,
               }}
             >
               {project.description}
             </div>
           </div>
 
+          {/* Right side */}
           <div
+            className="hero-right"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -281,6 +288,7 @@ function HeroCard({ project }: { project: (typeof projects)[0] }) {
             }}
           >
             <div
+              className="hero-tags"
               style={{
                 display: "flex",
                 gap: "6px",
