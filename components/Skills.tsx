@@ -345,6 +345,86 @@ export default function Skills() {
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Bottom — all skills as pills */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          style={{
+            borderTop: "1px solid rgba(255,100,0,0.15)",
+            paddingTop: "32px",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontSize: "9px",
+              color: "#aaa",
+              letterSpacing: "3px",
+              textTransform: "uppercase",
+              marginBottom: "16px",
+            }}
+          >
+            All Technologies
+          </div>
+          <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+            {[
+              "HTML5",
+              "CSS3",
+              "JavaScript",
+              "ES6+",
+              "React.js",
+              "Next.js",
+              "Node.js",
+              "Express.js",
+              "Python",
+              "Flask",
+              "MongoDB",
+              "MySQL",
+              "SQL",
+              "DBMS",
+              "AWS",
+              "Tailwind CSS",
+              "Bootstrap",
+              "Git",
+              "GitHub",
+              "REST APIs",
+              "Automation Anywhere",
+              "Make.com",
+              "Power BI",
+              "Prompt Engineering",
+              "Responsive Design",
+            ].map((tech) => (
+              <span
+                key={tech}
+                style={{
+                  fontFamily: "var(--font-inter)",
+                  fontSize: "10px",
+                  color: "#888",
+                  background: "#fff",
+                  border: "1px solid #e8e2d8",
+                  padding: "4px 12px",
+                  borderRadius: "20px",
+                  transition: "all 0.2s",
+                  cursor: "none",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = "#ff6600";
+                  e.currentTarget.style.borderColor = "rgba(255,100,0,0.3)";
+                  e.currentTarget.style.background = "#fff8f5";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "#888";
+                  e.currentTarget.style.borderColor = "#e8e2d8";
+                  e.currentTarget.style.background = "#fff";
+                }}
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
