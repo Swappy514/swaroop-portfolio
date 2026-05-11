@@ -224,6 +224,21 @@ export default function Hobbies() {
       </div>
 
       {/* Mobile styles */}
+      <style>{`
+        @media (max-width: 768px) {
+          #hobbies > div > div:last-child {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        @media (max-width: 480px) {
+          #hobbies > div > div:last-child {
+            grid-template-columns: 1fr !important;
+          }
+          #hobbies {
+            padding: 40px 20px 60px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
