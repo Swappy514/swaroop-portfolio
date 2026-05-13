@@ -151,3 +151,18 @@ body {
     min-height: 300px !important;
   }
 }
+/* Touch active states for mobile */
+@media (hover: none) {
+  .hobby-card:active {
+    transform: scale(0.98) !important;
+    border-color: rgba(255, 130, 0, 0.3) !important;
+    box-shadow: 0 8px 24px rgba(255, 85, 0, 0.1) !important;
+  }
+  .skill-card:active {
+    transform: scale(0.97) !important;
+    border-color: rgba(255, 130, 0, 0.3) !important;
+  }
+  .pbox:active {
+    transform: scale(0.98) !important;
+  }
+}
