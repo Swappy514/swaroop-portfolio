@@ -325,22 +325,6 @@ export default function Blog() {
           ))}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 900px) {
-          #blog > div > div:last-child {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-        @media (max-width: 560px) {
-          #blog > div > div:last-child {
-            grid-template-columns: 1fr !important;
-          }
-          #blog {
-            padding: 60px 20px !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }
