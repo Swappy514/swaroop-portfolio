@@ -1,0 +1,23 @@
+---
+title: "React Performance Patterns Every Dev Should Know"
+description: "useMemo, useCallback, lazy loading and code splitting — the patterns that actually matter in real apps."
+date: "2025-04-18"
+tag: "REACT"
+readTime: "4 min read"
+---
+
+# React Performance Patterns Every Dev Should Know
+
+React is fast by default — but it's easy to accidentally slow it down.
+
+## useMemo and useCallback
+
+Only use these when you have a proven performance problem. Premature optimization is the root of all evil.
+
+## Code Splitting
+
+Use dynamic imports with React.lazy() and Suspense to split your bundle and load components only when needed.
+
+## Avoid Re-renders
+
+Move state as close to where it's used as possible. Lift state only when necessary.
