@@ -10,6 +10,7 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Hobbies from "@/components/Hobbies";
+import Blog from "@/components/Blog";
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -29,6 +30,7 @@ export default function Home() {
       <Projects />
       <Skills />
       <Hobbies />
+      <Blog />
     </main>
   );
 }
