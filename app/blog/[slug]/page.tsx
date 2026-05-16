@@ -20,7 +20,7 @@ export default async function BlogPostPage({
   return (
     <>
       <CustomCursor />
-      <BlogNavbar showBack={true} />
+      <BlogNavbar showBack={true} backLabel="All Articles" backHref="/blog" />
       <main
         style={{
           background: "#080808",
