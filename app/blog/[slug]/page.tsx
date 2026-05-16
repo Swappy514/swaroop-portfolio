@@ -113,7 +113,7 @@ export default async function BlogPostPage({
               ← All Articles
             </a>
             <a
-              href="/"
+              href="/#blog"
               style={{
                 fontFamily: "var(--font-inter)",
                 fontSize: "12px",
@@ -122,7 +122,7 @@ export default async function BlogPostPage({
                 cursor: "none",
               }}
             >
-              Back to Portfolio →
+              Blog Section →
             </a>
           </div>
         </div>
