@@ -45,7 +45,7 @@ export default function BlogPage() {
   return (
     <>
       <CustomCursor />
-      <BlogNavbar showBack={false} />
+      <BlogNavbar showBack={true} backLabel="Blog Section" backHref="/#blog" />
       <main
         style={{
           background: "#080808",
