@@ -1,16 +1,19 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { FaArrowLeft } from "react-icons/fa";
 
+interface BlogNavbarProps {
+  showBack?: boolean;
+  backLabel?: string;
+  backHref?: string;
+}
+
 export default function BlogNavbar({
   showBack = true,
-}: {
-  showBack?: boolean;
-}) {
-  const router = useRouter();
-
+  backLabel = "Back",
+  backHref = "/#blog",
+}: BlogNavbarProps) {
   return (
     <nav
       style={{
@@ -68,8 +71,8 @@ export default function BlogNavbar({
 
         {/* Back button */}
         {showBack && (
-          <motion.button
-            onClick={() => router.back()}
+          <motion.a
+            href={backHref}
             whileHover={{ x: -2 }}
             style={{
               display: "flex",
@@ -84,6 +87,7 @@ export default function BlogNavbar({
               padding: "7px 16px",
               borderRadius: "6px",
               cursor: "none",
+              textDecoration: "none",
               transition: "all 0.2s",
             }}
             onMouseEnter={(e) => {
@@ -96,8 +100,8 @@ export default function BlogNavbar({
             }}
           >
             <FaArrowLeft size={11} />
-            Back
-          </motion.button>
+            {backLabel}
+          </motion.a>
         )}
       </div>
     </nav>
