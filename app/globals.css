@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
   --orange: #ff4500;
@@ -65,17 +63,6 @@ body {
   background: rgba(255, 69, 0, 0.3);
   color: #fff;
 }
-
-/* Mobile Nav */
-@media (max-width: 768px) {
-  .nav-desktop {
-    display: none !important;
-  }
-  .nav-mobile-btn {
-    display: flex !important;
-  }
-}
-
 /* Hero animations */
 @keyframes beamPulse {
   0%,
@@ -136,6 +123,15 @@ body {
     transform: translate(-50%, -50%) scale(1.2);
   }
 }
+/* Mobile Nav */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+  .nav-mobile-btn {
+    display: flex !important;
+  }
+}
 
 @media (max-width: 640px) {
   #projects {
@@ -151,7 +147,7 @@ body {
     min-height: 300px !important;
   }
 }
-/* Touch active states for mobile */
+
 @media (hover: none) {
   .hobby-card:active {
     transform: scale(0.98) !important;
