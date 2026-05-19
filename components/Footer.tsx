@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedinIn, FaInstagram, FaHeart } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -50,7 +51,6 @@ export default function Footer() {
       }}
     >
       <div style={{ maxWidth: "1040px", margin: "0 auto" }}>
-
         {/* Top row */}
         <div
           style={{
@@ -94,8 +94,8 @@ export default function Footer() {
                 marginBottom: "20px",
               }}
             >
-              Full-Stack Developer based in Maharashtra, India.
-              Building fast, scalable and beautiful web experiences.
+              Full-Stack Developer based in Maharashtra, India. Building fast,
+              scalable and beautiful web experiences.
             </p>
 
             {/* Available badge */}
@@ -201,8 +201,8 @@ export default function Footer() {
                 marginBottom: "20px",
               }}
             >
-              
-                href="mailto:swaroop.jadhav@email.com"
+              <a
+                href="mailto:swaroopjadhav5@gmail.com"
                 style={{
                   fontFamily: "var(--font-inter)",
                   fontSize: "12px",
@@ -211,10 +211,14 @@ export default function Footer() {
                   cursor: "none",
                   transition: "color 0.2s",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#ff9944")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#555")}
+                onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.currentTarget.style.color = "#ff9944";
+                }}
+                onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.currentTarget.style.color = "#555";
+                }}
               >
-                swaroop.jadhav@email.com
+                swaroopjadhav5@gmail.com
               </a>
               <span
                 style={{
@@ -257,7 +261,8 @@ export default function Footer() {
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.color = "#555";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)";
+                    e.currentTarget.style.borderColor =
+                      "rgba(255,255,255,0.07)";
                     e.currentTarget.style.background = "rgba(255,255,255,0.04)";
                   }}
                 >
@@ -295,7 +300,7 @@ export default function Footer() {
             >
               <FaHeart size={11} color="#ff4500" />
             </motion.span>
-            and JavaScript · Swaroop Jadhav © 2025
+            and JavaScript · Swaroop Jadhav © 2026
           </div>
 
           <div

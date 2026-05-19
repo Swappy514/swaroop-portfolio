@@ -12,6 +12,7 @@ import Skills from "@/components/Skills";
 import Hobbies from "@/components/Hobbies";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -33,6 +34,7 @@ export default function Home() {
       <Hobbies />
       <Blog />
       <Contact />
+      <Footer />
     </main>
   );
 }
