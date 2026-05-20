@@ -13,6 +13,7 @@ import Hobbies from "@/components/Hobbies";
 import Blog from "@/components/Blog";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import BackToTop from "@/components/BackToTop";
 
 export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -25,6 +26,7 @@ export default function Home() {
     <main>
       <CustomCursor />
       <ScrollProgress />
+      <BackToTop />
       {!introComplete && <Intro onComplete={handleIntroComplete} />}
       <Navbar />
       <Hero />
