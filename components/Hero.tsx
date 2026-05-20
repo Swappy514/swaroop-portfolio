@@ -298,7 +298,7 @@ export default function Hero() {
               View My Work ↓
             </motion.a>
             <motion.a
-              href="/swaroop-cv.pdf"
+              href="/projects/Swarup_Jadhav_Resume.pdf"
               target="_blank"
               whileHover={{ y: -2 }}
               style={{
