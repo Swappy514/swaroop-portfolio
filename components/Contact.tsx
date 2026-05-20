@@ -156,7 +156,7 @@ export default function Contact() {
             textAlign: "center",
           }}
         >
-          Let's Build
+          Let&apos;s Build
           <br />
           <span
             style={{
@@ -271,7 +271,7 @@ export default function Contact() {
                       fontWeight: 500,
                     }}
                   >
-                    swaroop.jadhav@email.com
+                    swaroopjadhav5@gmail.com
                   </div>
                 </div>
               </div>
