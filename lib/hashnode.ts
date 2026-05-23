@@ -21,6 +21,7 @@ const BLOG_HOST = "swaroopdev.hashnode.dev";
 function getFallbackPosts(): HashnodePost[] {
   return [
     {
+      id: "fallback-post-1",
       title: "Stop Watching API Tutorials — Do This Instead",
       brief:
         "Most developers spend months watching tutorials without building anything real. Here is a practical approach that actually accelerates your learning and gets you building faster.",
