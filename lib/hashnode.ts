@@ -1,4 +1,5 @@
 export interface HashnodePost {
+  id: string;
   title: string;
   brief: string;
   slug: string;
@@ -45,6 +46,7 @@ export async function getHashnodePosts(): Promise<HashnodePost[]> {
           posts(first: 20) {
             edges {
               node {
+                id
                 title
                 brief
                 slug
