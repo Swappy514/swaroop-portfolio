@@ -4,8 +4,7 @@
 
 ### 🌐 [swaroop-portfolio-rouge.vercel.app](https://swaroop-portfolio-rouge.vercel.app/)
 
-![Hero Section](https://raw.githubusercontent.com/Swappy514/swaroop-portfolio/main/public/projects/JS-35%2BProjects.png)
-
+![Portfolio Preview](https://raw.githubusercontent.com/Swappy514/swaroop-portfolio/main/public/readme/preview.gif)
 </div>
 
 ---
@@ -13,7 +12,6 @@
 <div align="center">
 
 [![Live Demo](https://img.shields.io/badge/🚀%20Live%20Demo-Visit%20Portfolio-ff4500?style=for-the-badge)](https://swaroop-portfolio-rouge.vercel.app/)
-[![Resume](https://img.shields.io/badge/📄%20Resume-Download%20CV-ffb700?style=for-the-badge)](https://swaroop-portfolio-rouge.vercel.app/projects/Swarup_Jadhav_Resume.pdf)
 
 [![GitHub](https://img.shields.io/badge/GitHub-Swappy514-181717?style=flat-square&logo=github)](https://github.com/Swappy514)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-swaroopjadhav514-0077B5?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/swaroopjadhav514/)
