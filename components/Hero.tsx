@@ -193,7 +193,7 @@ export default function Hero() {
             position: "relative",
             zIndex: 10,
             textAlign: "center",
-            width: "clamp(260px, 80vw, 320px)",
+            width: "clamp(300px, 50vw, 420px)",
           }}
         >
           <h1
@@ -208,7 +208,7 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(36px, 8vw, 84px)",
+                fontSize: "clamp(48px, 7vw, 84px)",
                 color: "#fff",
                 textTransform: "uppercase",
               }}
@@ -218,7 +218,7 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(36px, 8vw, 84px)",
+                fontSize: "clamp(48px, 7vw, 84px)",
                 color: "#fff",
                 textTransform: "uppercase",
               }}
@@ -228,7 +228,7 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(18px, 4vw, 42px)",
+                fontSize: "clamp(24px, 3.2vw, 42px)",
                 background: "linear-gradient(135deg, #ff4500, #ffb700)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
