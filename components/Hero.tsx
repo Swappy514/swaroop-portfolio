@@ -158,17 +158,18 @@ export default function Hero() {
       <div
         style={{
           position: "relative",
-          width: "min(680px, 90vw)",
-          height: "min(680px, 90vw)",
+          width: "min(620px, 95vw)",
+          height: "min(620px, 95vw)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        {/* Orbit rings */}
-        {[480, 580].map((size, i) => (
+        {/* Orbit rings — hide on mobile */}
+        {[430, 510].map((size, i) => (
           <div
             key={size}
+            className="orbit-ring-el"
             style={{
               position: "absolute",
               top: "50%",
@@ -192,7 +193,7 @@ export default function Hero() {
             position: "relative",
             zIndex: 10,
             textAlign: "center",
-            width: "clamp(280px, 40vw, 480px)",
+            width: "clamp(260px, 80vw, 320px)",
           }}
         >
           <h1
@@ -200,15 +201,14 @@ export default function Hero() {
               fontFamily: "var(--font-inter)",
               fontWeight: 800,
               lineHeight: 0.95,
-              letterSpacing: "2px",
+              letterSpacing: "1px",
               marginBottom: "14px",
-              textAlign: "center",
             }}
           >
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(36px, 5.5vw, 80px)",
+                fontSize: "clamp(36px, 8vw, 84px)",
                 color: "#fff",
                 textTransform: "uppercase",
               }}
@@ -218,7 +218,7 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(36px, 5.5vw, 80px)",
+                fontSize: "clamp(36px, 8vw, 84px)",
                 color: "#fff",
                 textTransform: "uppercase",
               }}
@@ -228,21 +228,20 @@ export default function Hero() {
             <span
               style={{
                 display: "block",
-                fontSize: "clamp(16px, 2.2vw, 38px)",
-                letterSpacing: "6px",
+                fontSize: "clamp(18px, 4vw, 42px)",
                 background: "linear-gradient(135deg, #ff4500, #ffb700)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
                 marginTop: "8px",
                 textTransform: "uppercase",
+                letterSpacing: "4px",
               }}
             >
               Full-Stack Dev
             </span>
           </h1>
 
-          {/* Tech name pills */}
           <div
             style={{
               display: "flex",
@@ -269,20 +268,17 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Buttons */}
           <div
             style={{
               display: "flex",
               gap: "12px",
               justifyContent: "center",
+              flexWrap: "wrap",
             }}
           >
             <motion.a
               href="#projects"
-              whileHover={{
-                boxShadow: "0 0 24px rgba(255,85,0,0.45)",
-                y: -2,
-              }}
+              whileHover={{ boxShadow: "0 0 24px rgba(255,85,0,0.45)", y: -2 }}
               style={{
                 padding: "11px 24px",
                 background: "linear-gradient(135deg, #ff4500, #ff7700)",
@@ -319,16 +315,16 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Orbiting icons */}
+        {/* Orbiting icons — hidden on mobile */}
         <div
           ref={iconsRef}
+          className="orbit-icons-wrap"
           style={{
             position: "absolute",
             top: "50%",
             left: "50%",
             width: 0,
             height: 0,
-            zIndex: 20,
           }}
         >
           {orbitIcons.map((item) => (
@@ -352,13 +348,10 @@ export default function Hero() {
                 e.currentTarget.style.background = "rgba(255,85,0,0.1)";
                 e.currentTarget.style.boxShadow =
                   "0 0 0 1.5px #ff7700, 0 0 18px rgba(255,85,0,0.25)";
-                e.currentTarget.style.border = "1px solid transparent";
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "#131313";
                 e.currentTarget.style.boxShadow = "none";
-                e.currentTarget.style.border =
-                  "1px solid rgba(255,255,255,0.08)";
               }}
               title={item.label}
             >
