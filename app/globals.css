@@ -148,7 +148,7 @@ body {
   }
 }
 /* Hide orbit on mobile */
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .orbit-icons-wrap {
     display: none !important;
   }
