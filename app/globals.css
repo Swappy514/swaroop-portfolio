@@ -147,7 +147,18 @@ body {
     min-height: 300px !important;
   }
 }
-
+/* Hide orbit on mobile */
+@media (max-width: 640px) {
+  .orbit-icons-wrap {
+    display: none !important;
+  }
+  .orbit-ring-el {
+    display: none !important;
+  }
+  #hero {
+    padding: 0 20px !important;
+  }
+}
 @media (hover: none) {
   .hobby-card:active {
     transform: scale(0.98) !important;
