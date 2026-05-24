@@ -31,7 +31,7 @@ function getFallbackPosts(): HashnodePost[] {
       views: 0,
       reactionCount: 0,
       coverImage: {
-        url: "/projects/AI-Resume-Evaluator-Bot.png",
+        url: "https://cdn.hashnode.com/uploads/covers/6a0a90833104e2aff00f4437/b4e2fe93-4488-4910-9da8-1d4f914e9ee0.png",
       },
       tags: [{ name: "Developer Tips" }],
       url: "https://swaroopdev.hashnode.dev/stop-watching-api-tutorials-do-this-instead",
