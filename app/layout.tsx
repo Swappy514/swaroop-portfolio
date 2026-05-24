@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "Swaroop Jadhav — Full-Stack Developer | React, Node.js, MongoDB",
   description:
     "Swaroop Jadhav is a BTech CSE 2025 graduate and Full-Stack Developer from Maharashtra, India. Specializing in React, Node.js, MongoDB, AWS and Python. Open to full-time roles and freelance projects.",
+  icons: {
+    icon: "/projects/logo.png",
+    apple: "/projects/logo.png",
+  },
   keywords: [
     "Swaroop Jadhav",
     "Swaroop Jadhav Developer",
