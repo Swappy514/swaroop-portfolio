@@ -16,7 +16,7 @@ export interface HashnodePost {
   url: string;
 }
 
-const BLOG_HOST = "swaroopdev.hashnode.dev";
+const RSS_URL = "https://swaroopdev.hashnode.dev/rss.xml";
 
 function getFallbackPosts(): HashnodePost[] {
   return [
@@ -39,58 +39,104 @@ function getFallbackPosts(): HashnodePost[] {
   ];
 }
 
+function parseReadTime(content: string): number {
+  const words = content.replace(/<[^>]*>/g, "").split(/\s+/).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
+function extractCoverImage(content: string): string | null {
+  const match = content.match(/<img[^>]+src="([^"]+)"/);
+  return match ? match[1] : null;
+}
+
 export async function getHashnodePosts(): Promise<HashnodePost[]> {
   try {
-    const query = `
-      {
-        publication(host: "${BLOG_HOST}") {
-          posts(first: 20) {
-            edges {
-              node {
-                id
-                title
-                brief
-                slug
-                publishedAt
-                readTimeInMinutes
-                views
-                reactionCount
-                coverImage {
-                  url
-                }
-                tags {
-                  name
-                }
-                url
-              }
-            }
-          }
-        }
-      }
-    `;
-
-    const res = await fetch("https://gql.hashnode.com/", {
-      method: "POST",
+    const res = await fetch(RSS_URL, {
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
+        Accept: "application/rss+xml, application/xml, text/xml",
+        "User-Agent": "Mozilla/5.0 (compatible; Portfolio/1.0)",
       },
-      body: JSON.stringify({ query }),
-      cache: "no-store",
+      next: { revalidate: 3600 },
     });
 
-    const text = await res.text();
-
-    if (text.startsWith("<")) {
-      console.error("Hashnode returned HTML — API blocked or unreachable");
+    if (!res.ok) {
+      console.error("RSS fetch failed:", res.status);
       return getFallbackPosts();
     }
 
-    const data = JSON.parse(text);
-    const edges = data?.data?.publication?.posts?.edges ?? [];
-    return edges.map((e: { node: HashnodePost }) => e.node);
+    const xml = await res.text();
+
+    if (!xml.includes("<item>")) {
+      console.error("RSS returned no items");
+      return getFallbackPosts();
+    }
+
+    // Parse RSS items
+    const items = xml.split("<item>").slice(1);
+
+    const posts: HashnodePost[] = items.map((item, index) => {
+      const getTag = (tag: string) => {
+        const match = item.match(
+          new RegExp(
+            `<${tag}[^>]*><!\\[CDATA\\[([\\s\\S]*?)\\]\\]><\\/${tag}>|<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`,
+          ),
+        );
+        return match ? (match[1] || match[2] || "").trim() : "";
+      };
+
+      const title = getTag("title");
+      const link =
+        getTag("link") || item.match(/<link>([^<]+)<\/link>/)?.[1] || "";
+      const pubDate = getTag("pubDate");
+      const description = getTag("description");
+      const content = getTag("content:encoded") || description;
+
+      // Extract slug from URL
+      const slug = link.split("/").filter(Boolean).pop() || `post-${index}`;
+
+      // Extract cover image from content
+      const coverMatch = content.match(
+        /src="(https:\/\/cdn\.hashnode\.com[^"]+)"/,
+      );
+      const coverUrl = coverMatch ? coverMatch[1] : null;
+
+      // Extract categories/tags
+      const tagMatches = [
+        ...item.matchAll(/<category><!\[CDATA\[([^\]]+)\]\]><\/category>/g),
+      ];
+      const tags =
+        tagMatches.length > 0
+          ? tagMatches.map((m) => ({ name: m[1] }))
+          : [{ name: "Development" }];
+
+      // Clean description for brief
+      const brief =
+        description
+          .replace(/<[^>]*>/g, "")
+          .replace(/&[^;]+;/g, " ")
+          .trim()
+          .slice(0, 200) + "...";
+
+      return {
+        id: `post-${index}-${slug}`,
+        title: title || "Untitled Post",
+        brief: brief || "Read this article on Hashnode.",
+        slug,
+        publishedAt: pubDate
+          ? new Date(pubDate).toISOString()
+          : new Date().toISOString(),
+        readTimeInMinutes: parseReadTime(content),
+        views: 0,
+        reactionCount: 0,
+        coverImage: coverUrl ? { url: coverUrl } : null,
+        tags,
+        url: link || `https://swaroopdev.hashnode.dev/${slug}`,
+      };
+    });
+
+    return posts.length > 0 ? posts : getFallbackPosts();
   } catch (err) {
-    console.error("Hashnode API error:", err);
+    console.error("RSS fetch error:", err);
     return getFallbackPosts();
   }
 }
